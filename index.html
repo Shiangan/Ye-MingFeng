@@ -108,43 +108,45 @@ document.addEventListener('DOMContentLoaded', function () {
     
     <header>
         <img src="image/logo.png" alt="Logo" class="logo" loading="lazy">
-        <h1>✝ 葉旻峰弟兄 安息主懷 ✝</h1>
+        <h1 class="no-break">✝ 葉旻峰弟兄 安息主懷 ✝</h1>
     </header>
 
 <main>
-    <section class="main-photo-section">
-        <img id="main-photo" src="image/IMG_2464.jpeg" alt="追思照片" loading="lazy">
+<section class="main-photo-section">
+    <img id="main-photo" src="image/IMG_2464.jpeg" alt="追思照片" loading="lazy">
 
-        <div id="life-story" class="fade-in-text">
-            <p><strong>我們敬愛的弟兄 葉旻峰</strong></p>
+    <div id="life-story" class="fade-in-text">
+        <p><strong>我們敬愛的弟兄 葉旻峰</strong></p>
 
-            <p><strong>於主後2025年9月9日</strong><br>
-               <strong>上午01點06分</strong><br>
-               <strong>在主懷中安息，享年74歲。</strong></p>
+        <p><strong>於主後2025年9月9日<br>
+        上午01點06分<br>
+        在主懷中安息，享年74歲。</strong></p>
 
-            <p><strong>謹訂於</strong><br>
-               <strong>2025年9月19日（星期五）</strong><br>
-               <strong>台北市立懷愛館</strong><br>
-               <strong>景行樓1F［ 至忠四廳 ］</strong><br>
-               <strong>舉行追思禮拜</strong></p>
+        <p><strong>謹訂於<br>
+        2025年9月19日（星期五）<br>
+        台北市立懷愛館<br>
+        景行樓1F［ 至忠四廳 ］<br>
+        舉行追思禮拜</strong></p>
 
-            <p><strong>誠邀至親好友同心參與</strong><br>
-               <strong>一同懷念弟兄蒙主恩典的一生</strong></p>
+        <p><strong>誠邀至親好友同心參與<br>
+        一同懷念弟兄蒙主恩典的一生</strong></p>
 
-            <p class="scripture">「我是復活，我是生命，信我的人雖然死了，也必復活。」<br>── 約翰福音 11:25</p>
+        <p class="scripture">「我是復活，我是生命，信我的人雖然死了，也必復活。」<br>── 約翰福音 11:25</p>
 
-            <p><strong>家屬仰望主恩，感謝弟兄姊妹及親友的安慰與代禱。</strong></p>
+        <p><strong>家屬仰望主恩，感謝弟兄姊妹及親友的安慰與代禱。</strong></p>
 
-            <strong>追思禮拜地點：</strong> 台北市立殯儀館（懷愛館）<br>
-            <strong>地址：</strong> 台北市大安區辛亥路三段330號
-        </div>
-    </section>
+        <p><strong>追思禮拜地點：</strong> 台北市立殯儀館（懷愛館）<br>
+        <strong>地址：</strong> 台北市大安區辛亥路三段330號</p>
+    </div>
+</section>
 </main>
 
 <style>
 body {
     background: linear-gradient(to bottom, #ffffff, #f3f7fb);
     font-family: 'Noto Serif', 'MingLiU', serif;
+    margin: 0;
+    padding: 0;
 }
 
 .cross-symbol {
@@ -174,6 +176,10 @@ body {
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     letter-spacing: 0.5px;
+
+    /* 保持原本斷行，不亂換行 */
+    white-space: pre-line;   
+    word-break: keep-all;    
 }
 
 #life-story .scripture {
@@ -182,6 +188,7 @@ body {
     color: #555;
 }
 
+/* h1 完整不換行 */
 h1.no-break {
     white-space: nowrap;
     text-align: center;
@@ -190,6 +197,7 @@ h1.no-break {
     color: #2c3e50;
 }
 
+/* 響應式調整字體，保持段落整行 */
 @media (max-width: 768px) {
     #life-story { font-size: 17px; padding: 18px; }
     h1.no-break { font-size: 24px; }
@@ -203,6 +211,7 @@ h1.no-break {
     h1.no-break { font-size: 18px; }
 }
 </style>
+</body>
 
         <!-- 訃告紙本部分 -->
         <section class="paper-obituary-section">
