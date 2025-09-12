@@ -166,9 +166,9 @@ body {
 #life-story {
     text-align: center;
     font-size: 18px;
-    line-height: 1.8;
+    line-height: 1.4;           /* 由原 1.8 調整為 1.4，更緊湊 */
     margin: 0 auto;
-    max-width: 800px;
+    max-width: 90%;             /* 不超出頁面，左右有間距 */
     padding: 20px;
     color: #333;
     background: #f9f9f9 url('image/dove.png') no-repeat top right;
@@ -176,6 +176,12 @@ body {
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     letter-spacing: 0.5px;
+
+    white-space: pre-line;      /* 保留 <br> 斷行 */
+    word-break: keep-all;       /* 中文不拆字 */
+    overflow-wrap: break-word;  /* 避免超出容器 */
+    box-sizing: border-box;     /* padding 不影響寬度 */
+}
 
     /* 保持原本斷行，不亂換行 */
     white-space: pre-line;   
@@ -188,27 +194,19 @@ body {
     color: #555;
 }
 
-/* h1 完整不換行 */
 h1.no-break {
     white-space: nowrap;
     text-align: center;
-    font-size: 28px;
+    font-size: clamp(18px, 8vw, 36px); /* 最小18px，最大36px，根據螢幕寬度縮放 */
     margin: 10px 0 20px 0;
     color: #2c3e50;
 }
 
-/* 響應式調整字體，保持段落整行 */
 @media (max-width: 768px) {
-    #life-story { font-size: 17px; padding: 18px; }
-    h1.no-break { font-size: 24px; }
+    #life-story { font-size: 16px; line-height: 1.4; padding: 15px; }
 }
-@media (max-width: 600px) {
-    #life-story { font-size: 16px; padding: 15px; }
-    h1.no-break { font-size: 20px; }
-}
-@media (max-width: 400px) {
-    #life-story { font-size: 14px; padding: 10px; }
-    h1.no-break { font-size: 18px; }
+@media (max-width: 480px) {
+    #life-story { font-size: 14px; line-height: 1.3; padding: 10px; }
 }
 </style>
 </body>
