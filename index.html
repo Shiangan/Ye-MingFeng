@@ -916,27 +916,22 @@ document.addEventListener("DOMContentLoaded", function () {
 }
         
 <script>
-// 點擊圖片時顯示燈箱
-document.querySelectorAll(".gallery-img").forEach(img => {
+// 燈箱功能
+document.querySelectorAll(".image-gallery img").forEach(img => {
     img.addEventListener("click", function() {
         const lightbox = document.createElement("div");
         lightbox.classList.add("lightbox");
 
         const lightboxImg = document.createElement("img");
         lightboxImg.src = this.src;
-
         lightbox.appendChild(lightboxImg);
         document.body.appendChild(lightbox);
 
-        // 點擊燈箱任意空白區關閉（圖片本身不觸發關閉）
         lightbox.addEventListener("click", (e) => {
-            if (e.target === lightbox) {
-                lightbox.remove();
-            }
+            if (e.target === lightbox) lightbox.remove();
         });
     });
 });
-            
 </script>
 
 
