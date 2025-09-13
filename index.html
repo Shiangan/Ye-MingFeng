@@ -992,14 +992,16 @@ document.querySelectorAll(".image-gallery img").forEach(img => {
 
 /* 每一行版權文字 */
 .footer-text {
-  display: inline-block; /* 讓整行視為一塊 */
-  font-size: clamp(14px, 2vw, 18px);
+  display: block; 
   text-align: center;
   color: #333;
   line-height: 1.6;
   margin: 5px 0;
-  white-space: nowrap; /* 禁止自動換行 */
-  overflow-wrap: normal;
+  white-space: nowrap;      /* 禁止自動換行 */
+  overflow: hidden;         /* 超過隱藏 */
+  text-overflow: ellipsis;  /* 避免爆版 */
+  font-size: clamp(14px, 2.5vw, 18px); /* 隨裝置縮放 */
+  max-width: 100%;          /* 限制在畫面內 */
 }
 
 /* 字體加粗 */
@@ -1018,7 +1020,7 @@ document.querySelectorAll(".image-gallery img").forEach(img => {
     padding: 15px 5px;
   }
   .footer-text {
-    font-size: 16px;
+    font-size: clamp(12px, 4vw, 16px); /* 小螢幕時自動再縮小 */
   }
 }
 </style>
