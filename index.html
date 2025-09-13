@@ -997,11 +997,10 @@ document.querySelectorAll(".image-gallery img").forEach(img => {
   line-height: 1.6;
   margin: 5px 0;
 
-  /* 核心：永遠一行完整顯示，並自動縮放字體 */
-  white-space: nowrap;         
-  overflow: hidden;            
-  font-size: min(4vw, 18px);   /* 字體大小隨螢幕縮放，但不超過18px */
-  max-width: 100%;             /* 限制在畫面內 */
+  /* 保持一行，不自動換行 */
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 100%;
 }
 
 /* 字體加粗 */
@@ -1013,14 +1012,34 @@ document.querySelectorAll(".image-gallery img").forEach(img => {
 .highlight {
   color: #555;
 }
-
-/* 小螢幕時進一步縮小字體 */
-@media (max-width: 600px) {
-  .footer-text {
-    font-size: min(5vw, 16px);
-  }
-}
 </style>
+
+<script>
+// 通用 fitText 函式：自動縮小字體直到剛好塞進去
+function fitText(element, maxFontSize = 18, minFontSize = 12) {
+  const elements = document.querySelectorAll(element);
+  elements.forEach(el => {
+    const parentWidth = el.parentElement.clientWidth;
+    let fontSize = maxFontSize;
+    el.style.fontSize = fontSize + "px";
+
+    while (el.scrollWidth > parentWidth && fontSize > minFontSize) {
+      fontSize -= 1;
+      el.style.fontSize = fontSize + "px";
+    }
+  });
+}
+
+// 初次載入調整
+window.addEventListener("load", () => {
+  fitText(".footer-text", 18, 12);
+});
+
+// 視窗縮放時重新調整
+window.addEventListener("resize", () => {
+  fitText(".footer-text", 18, 12);
+});
+</script>
                 
               
 </body>
