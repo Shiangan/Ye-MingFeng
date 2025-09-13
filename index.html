@@ -964,61 +964,62 @@ document.querySelectorAll(".image-gallery img").forEach(img => {
     </div>
 
     <!-- 版權信息 -->
-    <div class="footer-info">
-        <p class="footer-text">
-            <strong>承辦禮儀公司 祥安生命有限公司 ｜ 禮儀師：陳柏元</strong>
-        </p>
-        <p class="footer-text">
-        <strong>© 2025 葉旻峰弟兄 訃告 | <span class="highlight">祥安生命有限公司</span> 版權所有</strong>
-        </p>
-    </div>
+<div class="footer-info">
+  <p class="footer-text">
+    <strong>承辦禮儀公司 祥安生命有限公司 ｜ 禮儀師：陳柏元</strong>
+  </p>
+  <p class="footer-text">
+    <strong>© 2025 葉旻峰弟兄 訃告 ｜ <span class="highlight">祥安生命有限公司</span> 版權所有</strong>
+  </p>
+</div>
 </footer>
 
 <style>
 /* 引入字體 */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&display=swap');
-
-/* 引入辰魚落雁體字體（實際網頁上需有正確字體） */
 @import url('https://fonts.googleapis.com/css2?family=ChenYu&display=swap');
 
 /* 頁腳區塊 */
 .footer-info {
-    text-align: center;
-    font-family: 'ChenYu', serif;
-    background-color: #f9f9f9;
-    border-top: 1px solid #ddd;
-    padding: 20px 10px;
-    margin-top: 40px;
+  text-align: center;
+  font-family: 'ChenYu', serif;
+  background-color: #f9f9f9;
+  border-top: 1px solid #ddd;
+  padding: 20px 10px;
+  margin-top: 40px;
+  white-space: normal; /* 確保只有換 <p> 才會換行 */
 }
 
 /* 每一行版權文字 */
 .footer-text {
-    display: block;
-    font-size: clamp(14px, 2vw, 18px); /* 自適應大小，手機不會太小，桌機不會太大 */
-    text-align: center;
-    color: #333;
-    line-height: 1.6;
-    margin: 5px 0;
+  display: inline-block; /* 讓整行視為一塊 */
+  font-size: clamp(14px, 2vw, 18px);
+  text-align: center;
+  color: #333;
+  line-height: 1.6;
+  margin: 5px 0;
+  white-space: nowrap; /* 禁止自動換行 */
+  overflow-wrap: normal;
 }
 
 /* 字體加粗 */
 .footer-text strong {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 /* 顯眼強調色 */
 .highlight {
-    color: #555;
+  color: #555;
 }
 
 /* 響應式設計 */
 @media (max-width: 600px) {
-    .footer-info {
-        padding: 15px 5px;
-    }
-    .footer-text {
-        font-size: 16px;
-    }
+  .footer-info {
+    padding: 15px 5px;
+  }
+  .footer-text {
+    font-size: 16px;
+  }
 }
 </style>
                 
