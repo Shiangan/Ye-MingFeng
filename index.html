@@ -963,7 +963,7 @@ document.querySelectorAll(".image-gallery img").forEach(img => {
         </div>
     </div>
 
-    <!-- 版權信息 -->
+<!-- 版權信息 -->
 <div class="footer-info">
   <p class="footer-text">
     <strong>承辦禮儀公司 祥安生命有限公司 ｜ 禮儀師：陳柏元</strong>
@@ -987,21 +987,21 @@ document.querySelectorAll(".image-gallery img").forEach(img => {
   border-top: 1px solid #ddd;
   padding: 20px 10px;
   margin-top: 40px;
-  white-space: normal; /* 確保只有換 <p> 才會換行 */
 }
 
 /* 每一行版權文字 */
 .footer-text {
-  display: block; 
+  display: block;
   text-align: center;
   color: #333;
   line-height: 1.6;
   margin: 5px 0;
-  white-space: nowrap;      /* 禁止自動換行 */
-  overflow: hidden;         /* 超過隱藏 */
-  text-overflow: ellipsis;  /* 避免爆版 */
-  font-size: clamp(14px, 2.5vw, 18px); /* 隨裝置縮放 */
-  max-width: 100%;          /* 限制在畫面內 */
+
+  /* 核心：永遠一行完整顯示，並自動縮放字體 */
+  white-space: nowrap;         
+  overflow: hidden;            
+  font-size: min(4vw, 18px);   /* 字體大小隨螢幕縮放，但不超過18px */
+  max-width: 100%;             /* 限制在畫面內 */
 }
 
 /* 字體加粗 */
@@ -1014,13 +1014,10 @@ document.querySelectorAll(".image-gallery img").forEach(img => {
   color: #555;
 }
 
-/* 響應式設計 */
+/* 小螢幕時進一步縮小字體 */
 @media (max-width: 600px) {
-  .footer-info {
-    padding: 15px 5px;
-  }
   .footer-text {
-    font-size: clamp(12px, 4vw, 16px); /* 小螢幕時自動再縮小 */
+    font-size: min(5vw, 16px);
   }
 }
 </style>
